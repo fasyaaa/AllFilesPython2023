@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Input Nilai</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Form Input Data Kompetisi</h1>
+    <form action="/tambah" method="post">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="asal_kampus">Asal Kampus:</label><br>
+        <input type="text" id="asal_kampus" name="asal_kampus" required><br><br>
+
+        <label for="prodi">Prodi:</label><br>
+        <input type="text" id="prodi" name="prodi" required><br><br>
+
+        <label for="semester">Semester:</label><br>
+        <input type="number" id="semester" name="semester" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>Data Kompetisi</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Asal Kampus</th>
+                <th>Prodi</th>
+                <th>Semester</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data_kompetisi %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td><a href="/hapus/{{ row[0] }}">Hapus</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

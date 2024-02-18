@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Login Page</title>
+</head>
+<body>
+   <form id="loginForm" action="http://localhost:5000/login" method="post" onsubmit="showWelcomeMessage()">
+      <p>Enter Name:</p>
+      <p><input type="text" name="nm" /></p>
+      <p><input type="submit" value="submit" /></p>
+   </form>
+
+   <p id="welcomeMessage" style="display: none;">Welcome to the login page</p>
+
+   <script>
+      function showWelcomeMessage() {
+         document.getElementById("welcomeMessage").style.display = "block";
+         return true; // Allow form submission
+      }
+   </script>
+</body>
+</html>
